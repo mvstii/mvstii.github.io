@@ -653,6 +653,25 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
         <button class="link-arch" type="button" data-drawer="kayma">Mimariyi İncele <span aria-hidden="true">→</span></button>
       </article>
 
+      <!-- IKIHOCA -->
+      <article class="card span-12 rv" id="c-ikihoca" data-card tabindex="-1">
+        <div class="card-top"><div><span class="eyebrow">Python · Gemini · Google Drive</span>
+        <h3 class="metal">İkiHoca</h3></div><span class="badge run mono">v0.1.5 · ön sürüm</span></div>
+        <p class="desc">Konu başlığından ya da ders notlarından <b style="color:var(--text-hi);font-weight:500">ders üreten</b> araç. Gemini notları okur, planlar ve dersi denetler; anlatımı Claude (kendi sohbetinde) ya da Gemini yazar; ders Google Doc olarak Drive'a arşivlenir. Aşağıda hattın küçük bir modeli var.</p>
+        <div class="modebar">
+          <input id="ihTopic" type="text" value="Fotosentez" maxlength="60" aria-label="Ders konusu" spellcheck="false" style="max-width:220px;flex:0 1 220px">
+          <span>kim yazsın?</span>
+          <div class="seg" id="ihWriter" role="group" aria-label="Dersi kim yazsın"><button type="button" data-w="claude" aria-pressed="true">Claude</button><button type="button" data-w="gemini" aria-pressed="false">Gemini</button></div>
+          <span>denetim</span>
+          <div class="seg" id="ihIssue" role="group" aria-label="Denetim sonucu"><button type="button" data-i="0" aria-pressed="true">temiz</button><button type="button" data-i="1" aria-pressed="false">sorun çıkar</button></div>
+          <button class="btn sm" type="button" id="ihGo">▶ Ders üret</button>
+        </div>
+        <div class="chain" id="ihChain" aria-live="polite"><div class="ph">hat: plan → yazım → denetim → arşiv</div></div>
+        <div class="zlog mono" id="ihLog" aria-live="polite">$ ikihoca yeni-ders</div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">uv</span><span class="tag">Gemini API</span><span class="tag">Claude</span><span class="tag">Google Drive API</span><span class="tag">AGPL-3.0</span></div>
+        <button class="link-arch" type="button" data-drawer="ikihoca">Mimariyi İncele <span aria-hidden="true">→</span></button>
+      </article>
+
       <!-- SKILLS -->
       <article class="card span-12 rv" id="c-skills" data-card tabindex="-1">
         <span class="eyebrow">Felsefe · Yetkinlik</span>
@@ -1210,6 +1229,14 @@ $('#filters').addEventListener('click', e => { const b = e.target.closest('butto
 
 /* ================= DRAWER ================= */
 const DOCS = {
+  ikihoca: {
+    eye: 'Python · Gemini · Google Drive', title: 'İkiHoca',
+    kv: [['0.1.5', 'ön sürüm'], ['3', 'en çok düzeltme turu'], ['AGPL-3.0', 'lisans']],
+    intro: 'Konu başlığından ya da ders notlarından ders üreten bir araç. Gemini notları okur, planlar ve dersi denetler; anlatımı Claude ya da Gemini yazar; ders Google Doc olarak Drive\'daki ortak klasöre arşivlenir. Her kullanıcı kendi bilgisayarında ve kendi Gemini API anahtarıyla çalıştırır.',
+    flow: [['Girdi', 'Konu başlığı ve isteğe bağlı notlar: PDF, DOCX, PPTX, MD, TXT, fotoğraf.'], ['Plan', 'Gemini notları okur ve dersi planlar.'], ['Yazım', 'Kim yazsın seçilir: Claude kendi claude.ai sohbetinde (paketi kopyala, cevabı geri getir) ya da Gemini otomatik.'], ['Denetim', 'Gemini dersi denetler; sorun çıkarsa en çok 3 düzeltme turu yapılır. İstenirse düzeltme atlanıp ders olduğu gibi arşivlenir.'], ['Arşiv', 'Ders Google Doc olarak Drive\'daki ortak klasöre yazılır.'], ['Kota ve yedek model', 'Model kotası dolarsa ya da model kapanırsa İkiHoca yedek Gemini modellerine kendiliğinden geçer.'], ['Gemini uygulamasında çalıştırma', 'Plan, yazım ve denetim adımları Gemini uygulamasında elle de yapılabilir; İkiHoca istemi hazırlar, API anahtarı gerekmez.']],
+    code: '# Windows: ilk seferde bağımlılıkları kurar, 127.0.0.1:8765 açılır\nbaslat.bat\n\n# geliştirme\nuv sync\nuv run pytest\nuv run ruff check .\nuv run mypy .',
+    notes: 'Sürüm 0.1.5 ön sürümdür: yakın çevre için, herkes kendi bilgisayarında çalıştırır; internette yayın yoktur. Karttaki simülasyon hattın küçük bir tarayıcı modelidir, gerçek İkiHoca değildir.'
+  },
   aegis: {
     eye: 'CLI · Ajan Güvenliği', title: 'aegis-hybrid-harness',
     kv: [['166', 'guard senaryosu'], ['4', 'model katmanı'], ['~65%', 'ort. token tasarrufu*']],
@@ -1301,9 +1328,11 @@ const COMMANDS = [
   ...EMOS.map((e, i) => ({ g: 'Simülasyon', ic: e.e, t: 'Tını: oy → ' + e.l, h: 'ağırlıklar', run: () => { goTo('c-tini')(); setTimeout(() => pickEmo(i), 450); } })),
   { g: 'Simülasyon', ic: '📡', t: 'Zam Radarı: zam duyurusu simüle et', h: 'bildirim', run: () => { goTo('c-zam')(); setTimeout(() => $('#zamBtn').click(), 500); } },
   { g: 'Simülasyon', ic: '🔎', t: 'Zar: hatalı seed tara', h: 'DST', run: () => { goTo('c-zar')(); setTimeout(() => $('#zarHunt').click(), 500); } },
+  { g: 'Simülasyon', ic: '📚', t: 'İkiHoca: ders üret', h: 'Gemini + Claude', run: () => { goTo('c-ikihoca')(); setTimeout(() => $('#ihGo').click(), 500); } },
   { g: 'Simülasyon', ic: '✓', t: 'Kayma: kayma check çalıştır', h: 'AST', run: () => { goTo('c-kayma')(); setTimeout(() => $('#kgCheck').click(), 500); } },
   { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → auto', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('auto'), 500); } },
   { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → normal', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('normal'), 500); } },
+  { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: İkiHoca', h: 'çekmece', run: () => openDrawer('ikihoca') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: aegis-hybrid-harness', h: 'çekmece', run: () => openDrawer('aegis') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: AdilKadro', h: 'çekmece', run: () => openDrawer('adil') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: Tını', h: 'çekmece', run: () => openDrawer('tini') },
@@ -1518,6 +1547,38 @@ $('#kgCheck').addEventListener('click', () => {
 });
 $('#kgReset').addEventListener('click', () => { kgViol = false; kgSel = null; kgDraw(); $('#kgLog').textContent = '$ kayma impact — bir modül seç.'; });
 kgDraw();
+
+/* ================= IKIHOCA (ders hattı modeli) ================= */
+let ihW = 'claude', ihIssue = 0, ihRun = 0;
+const ihChain = $('#ihChain'), ihLog = $('#ihLog');
+function ihRender(st, cur) {
+  ihChain.innerHTML = st.map((x, i) => '<div class="st' + (i < cur ? ' done' : i === cur ? ' on' : '') + '"><b></b><span><em></em></span></div>').join('');
+  $$('.st', ihChain).forEach((el, i) => { el.querySelector('b').textContent = st[i][0]; el.querySelector('em').textContent = st[i][1]; });
+}
+function ihLn(cls, text) {
+  const d = document.createElement('div'); d.className = 'ln ' + cls; d.textContent = text; ihLog.appendChild(d);
+  while (ihLog.children.length > 9) ihLog.firstChild.remove();
+}
+async function ihGo() {
+  const my = ++ihRun, topic = ($('#ihTopic').value.trim() || 'konu').slice(0, 60);
+  const claude = ihW === 'claude';
+  const st = [['1 · Plan', 'Gemini'], ['2 · Yazım', claude ? 'Claude · kendi sohbetinde' : 'Gemini · otomatik'], ['3 · Denetim', 'Gemini · en çok 3 tur'], ['4 · Arşiv', 'Google Doc · Drive']];
+  const L = [['dim', '$ ikihoca yeni-ders "' + topic + '"', -1], ['info', '[plan] Gemini konuyu bölümlere ayırdı (örnek: 5 başlık)', 0],
+    claude ? ['warn', "[yazım] paket kopyalandı → claude.ai'a yapıştır, cevabı buraya getir (elle adım)", 1] : ['info', '[yazım] Gemini dersi yazıyor · kopyalama yok', 1],
+    ['ok', '[yazım] ders metni alındı', 1], ['info', '[denetim] Gemini dersi plana göre denetliyor', 2]];
+  if (ihIssue) L.push(['warn', '[denetim] tur 1: 2 sorun → düzeltme istendi', 2], ['warn', '[denetim] tur 2: 1 sorun kaldı', 2], ['ok', '[denetim] tur 3: sorun yok ✓', 2]);
+  else L.push(['ok', '[denetim] sorun yok ✓ · 0 düzeltme turu', 2]);
+  L.push(['ok', '[arşiv] Google Doc olarak ortak Drive klasörüne yazıldı', 3], ['ok', '✓ ders hazır', 3]);
+  ihLog.innerHTML = ''; ihRender(st, -1);
+  for (const l of L) {
+    await sleep(reduceMotion ? 0 : 480); if (my !== ihRun) return;
+    ihLn(l[0], l[1]); if (l[2] >= 0) ihRender(st, l[2]);
+  }
+  ihRender(st, st.length);
+}
+$('#ihGo').addEventListener('click', ihGo);
+$('#ihWriter').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; ihW = b.dataset.w; $$('#ihWriter button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
+$('#ihIssue').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; ihIssue = +b.dataset.i; $$('#ihIssue button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
 
 /* ================= REPO LINKLERI ================= */
 $$('[data-repo]').forEach(c => {
