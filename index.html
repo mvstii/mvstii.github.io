@@ -371,9 +371,12 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
 }
 @media (max-width:720px){
   .sim{grid-template-columns:1fr}
-  .modes button{padding:6px 8px;font-size:10.5px}
+  .modes button{padding:6px 6px;font-size:10px}
+  .modes{gap:0;padding:2px;min-width:0}
   nav.top .brand span{display:none}
-  .kbtn .lbl{display:none}
+  .kbtn .lbl,.kbtn kbd{display:none}
+  .kbtn::before{content:"⋯";font-size:15px;line-height:1;padding:0 3px}
+  nav.top{gap:8px;padding-left:12px}
   .hud{display:none}
   .card{padding:22px}
   .skills{grid-template-columns:1fr}
