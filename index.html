@@ -339,6 +339,9 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
 .tl i.p{background:#A78BFA}.tl i.f{background:#38BDF8}.tl i.x{background:#475569}
 .tl i.bug{background:var(--danger);box-shadow:0 0 12px var(--danger);top:3px;bottom:3px;width:4px}
 .tl i.gone{opacity:0;transform:scaleY(.1)}
+.ab-ctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;font-size:12px;color:var(--text-body)}
+.ab-ctl input[type=range]{width:150px;accent-color:var(--accent-emerald)}
+.ab-ctl output{min-width:96px}
 .zlog{margin-top:10px;padding:12px 14px;border-radius:12px;background:var(--surface-terminal);border:1px solid var(--border-subtle);font-size:12px;line-height:1.7;color:var(--text-body);white-space:pre-wrap;min-height:48px}
 .kg-wrap{margin-top:18px;border-radius:14px;border:1px solid var(--border-subtle);background:var(--surface-terminal);padding:6px}
 #kg{width:100%;height:auto;display:block}
@@ -652,7 +655,7 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
       <!-- IKIHOCA -->
       <article class="card span-12 rv" id="c-ikihoca" data-card tabindex="-1">
         <div class="card-top"><div><span class="eyebrow">Python · Gemini · Google Drive</span>
-        <h3 class="metal">İkiHoca</h3></div><span class="badge run mono">v0.1.5 · ön sürüm</span></div>
+        <h3 class="metal">İkiHoca</h3></div><span class="badge run mono">v0.1.6 · ön sürüm</span></div>
         <p class="desc">Konu başlığından ya da ders notlarından <b style="color:var(--text-hi);font-weight:500">ders üreten</b> araç. Gemini notları okur, planlar ve dersi denetler; anlatımı Claude (kendi sohbetinde) ya da Gemini yazar; ders Google Doc olarak Drive'a arşivlenir. Aşağıda hattın küçük bir modeli var.</p>
         <div class="modebar">
           <input id="ihTopic" type="text" value="Fotosentez" maxlength="60" aria-label="Ders konusu" spellcheck="false" style="max-width:220px;flex:0 1 220px">
@@ -666,6 +669,22 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
         <div class="zlog mono" id="ihLog" aria-live="polite">$ ikihoca yeni-ders</div>
         <div class="tags"><span class="tag">Python</span><span class="tag">uv</span><span class="tag">Gemini API</span><span class="tag">Claude</span><span class="tag">Google Drive API</span><span class="tag">AGPL-3.0</span></div>
         <button class="link-arch" type="button" data-drawer="ikihoca">Mimariyi İncele <span aria-hidden="true">→</span></button>
+      </article>
+
+      <!-- ATOMICARBSIM -->
+      <article class="card span-12 rv" id="c-atomicarb" data-card data-repo="atomicarbsim" tabindex="-1">
+        <div class="card-top"><div><span class="eyebrow">C++ · Python · Solidity · Avalanche</span>
+        <h3 class="metal">AtomicArbSim</h3></div><span class="badge ok mono">v1.1 · izleme</span></div>
+        <p class="desc">Avalanche C-Chain V2 havuzlarında <b style="color:var(--text-hi);font-weight:500">üçgen arbitrajı</b> arayan simülatör ve backtest motoru. C++ çekirdek döngü arar ve en uygun tutarı bulur, Python referansı ve Foundry fork testi sonucu doğrular. Gerçek backtest bulgusu: 5.043 blokta brüt fırsat hep vardı, gas sonrası kârlı olan <b style="color:var(--text-hi);font-weight:500">hiç çıkmadı</b>. Aşağıda aynı hesabın küçük bir modeli var: gas'ı değiştir, blok üret.</p>
+        <div class="ab-ctl">
+          <button class="btn sm" type="button" id="abStep">▶ Yeni blok</button>
+          <button class="btn sm" type="button" id="abBurst">⏩ 50 blok</button>
+          <label for="abGas">gas</label><input id="abGas" type="range" min="0" max="0.02" step="0.001" value="0.006" aria-label="Gas maliyeti (AVAX)"><output id="abGasOut" class="mono">0,006 AVAX</output>
+          <button class="btn sm" type="button" id="abReset">Sıfırla</button>
+        </div>
+        <div class="zlog mono" id="abLog" aria-live="polite">$ arbsim — bir blok üret; WAVAX → USDC → JOE → WAVAX.</div>
+        <div class="tags"><span class="tag">C++17</span><span class="tag">256 bit tam sayı</span><span class="tag">Möbius optimum</span><span class="tag">Foundry fork</span><span class="tag">flash swap</span></div>
+        <button class="link-arch" type="button" data-drawer="atomicarb">Mimariyi İncele <span aria-hidden="true">→</span></button>
       </article>
 
       <!-- SKILLS -->
@@ -1212,11 +1231,19 @@ $('#filters').addEventListener('click', e => { const b = e.target.closest('butto
 const DOCS = {
   ikihoca: {
     eye: 'Python · Gemini · Google Drive', title: 'İkiHoca',
-    kv: [['0.1.5', 'ön sürüm'], ['3', 'en çok düzeltme turu'], ['AGPL-3.0', 'lisans']],
+    kv: [['0.1.6', 'ön sürüm'], ['3', 'en çok düzeltme turu'], ['AGPL-3.0', 'lisans']],
     intro: 'Konu başlığından ya da ders notlarından ders üreten bir araç. Gemini notları okur, planlar ve dersi denetler; anlatımı Claude ya da Gemini yazar; ders Google Doc olarak Drive\'daki ortak klasöre arşivlenir. Her kullanıcı kendi bilgisayarında ve kendi Gemini API anahtarıyla çalıştırır.',
     flow: [['Girdi', 'Konu başlığı ve isteğe bağlı notlar: PDF, DOCX, PPTX, MD, TXT, fotoğraf.'], ['Plan', 'Gemini notları okur ve dersi planlar.'], ['Yazım', 'Kim yazsın seçilir: Claude kendi claude.ai sohbetinde (paketi kopyala, cevabı geri getir) ya da Gemini otomatik.'], ['Denetim', 'Gemini dersi denetler; sorun çıkarsa en çok 3 düzeltme turu yapılır. İstenirse düzeltme atlanıp ders olduğu gibi arşivlenir.'], ['Arşiv', 'Ders Google Doc olarak Drive\'daki ortak klasöre yazılır.'], ['Kota ve yedek model', 'Model kotası dolarsa ya da model kapanırsa İkiHoca yedek Gemini modellerine kendiliğinden geçer.'], ['Gemini uygulamasında çalıştırma', 'Plan, yazım ve denetim adımları Gemini uygulamasında elle de yapılabilir; İkiHoca istemi hazırlar, API anahtarı gerekmez.']],
     code: '# Windows: ilk seferde bağımlılıkları kurar, 127.0.0.1:8765 açılır\nbaslat.bat\n\n# geliştirme\nuv sync\nuv run pytest\nuv run ruff check .\nuv run mypy .',
-    notes: 'Sürüm 0.1.5 ön sürümdür: yakın çevre için, herkes kendi bilgisayarında çalıştırır; internette yayın yoktur. Karttaki simülasyon hattın küçük bir tarayıcı modelidir, gerçek İkiHoca değildir.'
+    notes: 'Sürüm 0.1.6 ön sürümdür: yakın çevre için, herkes kendi bilgisayarında çalıştırır; internette yayın yoktur. Karttaki simülasyon hattın küçük bir tarayıcı modelidir, gerçek İkiHoca değildir.'
+  },
+  atomicarb: {
+    eye: 'C++ · Python · Solidity · Avalanche', title: 'AtomicArbSim',
+    kv: [['5.043', 'backtest bloğu'], ['0', 'gas sonrası kârlı fırsat'], ['0,7 ms', '50 havuzda döngü arama']],
+    intro: 'Avalanche C-Chain V2 havuzlarında arbitraj fırsatı arayan simülatör ve backtest motoru. Amaç para kazanmak değil, fırsatın gerçekten var olup olmadığını ölçmek: backtest penceresinde brüt kârlı döngü her blokta vardı, ama hiçbiri gas\'ı karşılamadı.',
+    flow: [['Veri', 'collect.py havuz anlık görüntüsünü, history.py Sync olay serisini toplar.'], ['Referans', 'Python (reference/arb.py) döngü aramanın ve kâr hesabının açık, yavaş sürümüdür.'], ['Çekirdek', 'C++ motor 3 adıma kadar döngüleri arar, Möbius dönüşümüyle en uygun girdiyi bulur; 256 bit tam sayı ile taşma olmaz. Python ile 10.000 çizgede karşılaştırılır (differential test).'], ['Kontrat', 'FlashMultiHop.sol flash swap ile çok adımlı takası tek işlemde yapar; Foundry fork testinde tahmin edilen kâr gerçekleşenle aynıdır.'], ['Backtest', 'Blok başına fırsat sayısı, net kâr ve ömür; sonuç data/backtest.json ve grafikler.'], ['İzleme', 'monitor.py yeni bloklarda Sync olaylarını okur, motoru çalıştırır, fırsatı yazar. Salt okunur: işlem göndermez.']],
+    code: 'cmake -S engine -B build -G Ninja && cmake --build build && ctest --test-dir build\npython reference/backtest.py --gas-avax 0.01\nbuild/arbsim data/snapshot_<blok>.json --max-len 3 --top 5 --json\npython reference/monitor.py --blocks 20',
+    notes: 'Sınırlar: pencere kısa (~2,8 saat, 49 havuz); LB ve V3 havuzları kapsam dışı; gas sabit alındı. Karttaki model üç havuzlu küçük bir örnektir, gerçek veri ya da gerçek işlem değildir.'
   },
   aegis: {
     eye: 'CLI · Ajan Güvenliği', title: 'aegis-hybrid-harness',
@@ -1236,8 +1263,8 @@ const DOCS = {
   },
   tini: {
     eye: 'Flutter · FastAPI · Öneri Sistemi', title: 'Tını',
-    kv: [['6', 'kademeli oy (nötr yok)'], ['PPR', 'gerekçeli öneri'], ['266', 'backend testi']],
-    intro: 'Kullanıcının müzik zevkini nötr seçeneği olmayan 6 kademeli oylamayla çıkaran ve her önerisinin nedenini gösteren bir mobil uygulama. Zevk zekâsı uygulamanın kendi çekirdeğinde çalışır; Apple Music ve Spotify değiştirilebilir bağlantılardır. Durum: Faz 0–6 tamamlandı (v0.1.0-mvp, 2 Kasım 2026); Faz 7 sürüyor: yeni arayüz, uygulama içi hesap silme ve hız sınırı yapıldı. Spotify bağlantısı çalışıyor, Apple Music sonraya kaldı.',
+    kv: [['6', 'kademeli oy (nötr yok)'], ['PPR', 'gerekçeli öneri'], ['272', 'backend testi']],
+    intro: 'Kullanıcının müzik zevkini nötr seçeneği olmayan 6 kademeli oylamayla çıkaran ve her önerisinin nedenini gösteren bir mobil uygulama. Zevk zekâsı uygulamanın kendi çekirdeğinde çalışır; Apple Music ve Spotify değiştirilebilir bağlantılardır. Durum: Faz 0–6 tamamlandı (v0.1.0-mvp, 2 Kasım 2026); Faz 7 sürüyor: yeni arayüz, 30 sn önizleme, uygulama içi hesap silme ve hız sınırı yapıldı; sunucu Render + Neon\'da. Spotify bağlantısı çalışıyor, Apple Music sonraya kaldı.',
     flow: [['Oyla', 'Berbat · Kötü · İdare eder · İyi · Çok iyi · Efsane, ayrıca "Daha Dinlemedim". Oylar sonradan değiştirilebilir.'], ['Zevk profili', 'Tek ortalama yerine çok modlu profil: sevdiklerin zevk modlarına kümelenir, Efsane şarkılar çapa olur, Berbat/Kötü oylar kaçınma bölgesi oluşturur.'], ['Benzerlik grafiği', 'Last.fm, ListenBrainz ve MusicBrainz verisinden şarkılar arası benzerlik grafiği.'], ['Gerekçeli öneri', 'Çapalardan başlayan kişiselleştirilmiş PageRank yürüyüşü; doğrusal olduğu için her önerinin hangi şarkılardan geldiği doğrudan hesaplanır.'], ['Listeler', 'Keşif listesi ve Haftalık Taze listesi bağlı müzik servisine kaydedilir; servis bağlamayan kullanıcı şarkıyı istediği uygulamada açar.']],
     code: '<span class="cm"># kavramsal şema — kişiselleştirilmiş PageRank</span>\nr ← (1 − α)·s + α·Pᵀ·r\n<span class="cm"># s: çapa şarkılar (Efsane), P: benzerlik grafiği</span>\n<span class="cm"># katkı(şarkı_i → öneri_j) doğrudan okunur → "Neden bu şarkı?"</span>',
     notes: 'Yığın: Flutter, Python/FastAPI, PostgreSQL + pgvector, NumPy/SciPy, Docker Compose. Karttaki ağırlık ve kuyruk simülasyonu yalnızca arayüz fikrini gösterir.'
@@ -1310,9 +1337,11 @@ const COMMANDS = [
   { g: 'Simülasyon', ic: '📡', t: 'Zam Radarı: zam duyurusu simüle et', h: 'bildirim', run: () => { goTo('c-zam')(); setTimeout(() => $('#zamBtn').click(), 500); } },
   { g: 'Simülasyon', ic: '🔎', t: 'Zar: hatalı seed tara', h: 'DST', run: () => { goTo('c-zar')(); setTimeout(() => $('#zarHunt').click(), 500); } },
   { g: 'Simülasyon', ic: '📚', t: 'İkiHoca: ders üret', h: 'Gemini + Claude', run: () => { goTo('c-ikihoca')(); setTimeout(() => $('#ihGo').click(), 500); } },
+  { g: 'Simülasyon', ic: '⇄', t: 'AtomicArbSim: blok üret', h: 'arbitraj', run: () => { goTo('c-atomicarb')(); setTimeout(() => $('#abStep').click(), 500); } },
   { g: 'Simülasyon', ic: '✓', t: 'Kayma: kayma check çalıştır', h: 'AST', run: () => { goTo('c-kayma')(); setTimeout(() => $('#kgCheck').click(), 500); } },
   { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → auto', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('auto'), 500); } },
   { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → normal', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('normal'), 500); } },
+  { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: AtomicArbSim', h: 'çekmece', run: () => openDrawer('atomicarb') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: İkiHoca', h: 'çekmece', run: () => openDrawer('ikihoca') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: aegis-hybrid-harness', h: 'çekmece', run: () => openDrawer('aegis') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: AdilKadro', h: 'çekmece', run: () => openDrawer('adil') },
@@ -1558,6 +1587,49 @@ async function ihGo() {
 $('#ihGo').addEventListener('click', ihGo);
 $('#ihWriter').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; ihW = b.dataset.w; $$('#ihWriter button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
 $('#ihIssue').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; ihIssue = +b.dataset.i; $$('#ihIssue button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); });
+
+/* ================= ATOMICARBSIM (üçgen arbitraj modeli) ================= */
+const AB_BASE = [[10000, 300000], [300000, 600000], [600000, 10000]];   // WAVAX→USDC, USDC→JOE, JOE→WAVAX: [giren, çıkan] rezerv
+const AB_NAME = ['WAVAX/USDC', 'USDC/JOE', 'JOE/WAVAX'];
+let abBlk = 99326154, abRows = [], abN = 0;
+const abFmt = (v, d) => v.toLocaleString('tr-TR', { minimumFractionDigits: d, maximumFractionDigits: d });
+function abSwap(x, rIn, rOut) { const f = x * 997; return f * rOut / (rIn * 1000 + f); }
+function abCycle(x, R, rev) {
+  let v = x;
+  if (!rev) for (let i = 0; i < 3; i++) v = abSwap(v, R[i][0], R[i][1]);
+  else for (let i = 2; i >= 0; i--) v = abSwap(v, R[i][1], R[i][0]);
+  return v - x;
+}
+function abBest(R) {
+  let best = { p: 0, x: 0 };
+  [false, true].forEach(rev => {
+    let lo = 0, hi = 3000;
+    for (let k = 0; k < 60; k++) { const m1 = lo + (hi - lo) / 3, m2 = hi - (hi - lo) / 3; if (abCycle(m1, R, rev) < abCycle(m2, R, rev)) lo = m1; else hi = m2; }
+    const x = (lo + hi) / 2, pr = abCycle(x, R, rev);
+    if (pr > best.p) best = { p: pr, x };
+  });
+  return best;
+}
+function abBlock() {
+  const R = AB_BASE.map(r => r.slice()), i = Math.floor(Math.random() * 3), dev = (Math.random() * 2 - 1) * 0.012;
+  R[i][1] *= 1 + dev;
+  const b = abBest(R); abBlk++; abN++;
+  abRows.push({ blk: abBlk, i, dev, p: b.p, x: b.x }); if (abRows.length > 200) abRows.shift();
+}
+function abShow() {
+  const gas = +$('#abGas').value; $('#abGasOut').textContent = abFmt(gas, 3) + ' AVAX';
+  if (!abRows.length) { $('#abLog').textContent = '$ arbsim — bir blok üret; WAVAX → USDC → JOE → WAVAX.'; return; }
+  const win = abRows.filter(r => r.p > gas).length, gross = abRows.filter(r => r.p > 0).length;
+  const lines = abRows.slice(-6).map(r => {
+    const net = r.p - gas;
+    return r.p > 0 ? r.blk + '  ' + AB_NAME[r.i] + ' ' + (r.dev >= 0 ? '+' : '') + abFmt(r.dev * 100, 1) + '%  brüt ' + abFmt(r.p, 4) + '  ' + (net > 0 ? '✓ net +' + abFmt(net, 4) : '✗ gas karşılamaz') : r.blk + '  ' + AB_NAME[r.i] + ' ' + (r.dev >= 0 ? '+' : '') + abFmt(r.dev * 100, 1) + '%  fırsat yok';
+  });
+  $('#abLog').textContent = '$ arbsim --gas ' + abFmt(gas, 3) + '\n' + lines.join('\n') + '\n' + abRows.length + ' blok · brüt kârlı ' + gross + ' · gas sonrası kârlı ' + win;
+}
+$('#abStep').addEventListener('click', () => { abBlock(); abShow(); });
+$('#abBurst').addEventListener('click', () => { for (let k = 0; k < 50; k++) abBlock(); abShow(); toast('50 blok üretildi', 'info'); });
+$('#abReset').addEventListener('click', () => { abRows = []; abShow(); });
+$('#abGas').addEventListener('input', abShow);
 
 /* ================= REPO LINKLERI ================= */
 $$('[data-repo]').forEach(c => {
