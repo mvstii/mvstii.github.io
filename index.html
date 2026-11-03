@@ -594,7 +594,7 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
       <!-- MUSIC -->
       <article class="card span-6 rv" id="c-tini" data-card data-repo="tini" tabindex="-1">
         <div class="card-top"><div><span class="eyebrow">Flutter · FastAPI · Öneri Sistemi</span>
-        <h3 class="metal">Tını</h3></div><span class="badge run mono">Faz 0 · planlama</span></div>
+        <h3 class="metal">Tını</h3></div><span class="badge run mono">v0.1.0-mvp · Faz 7</span></div>
         <p class="desc">Şarkıları nötr seçeneği olmayan 6 kademeli ölçekte oyla, zevkini keşfet, <b style="color:var(--text-hi);font-weight:500">her önerisinin nedenini gösteren</b> keşif listeleri al. Bir oy seç; profil ağırlıkları ve gerekçe anında değişir (örnek simülasyon).</p>
         <div class="emo" id="emo" role="group" aria-label="Duygusal tepki"></div>
         <div class="viz" id="viz" aria-hidden="true"></div>
@@ -626,7 +626,7 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
       <!-- ZAR -->
       <article class="card span-6 rv" id="c-zar" data-card data-repo="zar" tabindex="-1">
         <div class="card-top"><div><span class="eyebrow">C++20 · Deterministic Simulation Testing</span>
-        <h3 class="metal">Zar</h3></div><span class="badge ok mono">v0.1 adayı</span></div>
+        <h3 class="metal">Zar</h3></div><span class="badge ok mono">v0.1</span></div>
         <p class="desc">Dağıtık sistemler için deterministik simülasyon testi: tüm küme tek iş parçacığında, tek bir tohumla (seed) çalışır. Zaman, ağ, disk ve zamanlayıcı simülatörün kontrolündedir; her hata <code>zar repro</code> ile birebir yeniden üretilir. Aşağıda aynı fikrin küçük bir tarayıcı modeli var.</p>
         <div class="zar-ctl">
           <label class="label" for="zarSeed">Başlangıç seed</label>
@@ -1255,15 +1255,15 @@ const DOCS = {
   },
   tini: {
     eye: 'Flutter · FastAPI · Öneri Sistemi', title: 'Tını',
-    kv: [['6', 'kademeli oy (nötr yok)'], ['PPR', 'gerekçeli öneri'], ['Faz 0', 'fizibilite']],
-    intro: 'Kullanıcının müzik zevkini nötr seçeneği olmayan 6 kademeli oylamayla çıkaran ve her önerisinin nedenini gösteren bir mobil uygulama. Zevk zekâsı uygulamanın kendi çekirdeğinde çalışır; Apple Music ve Spotify değiştirilebilir bağlantılardır. Durum: planlama tamamlandı, geliştirme 2 Kasım 2026\'da başladı; henüz çalışan kod yok.',
+    kv: [['6', 'kademeli oy (nötr yok)'], ['PPR', 'gerekçeli öneri'], ['266', 'backend testi']],
+    intro: 'Kullanıcının müzik zevkini nötr seçeneği olmayan 6 kademeli oylamayla çıkaran ve her önerisinin nedenini gösteren bir mobil uygulama. Zevk zekâsı uygulamanın kendi çekirdeğinde çalışır; Apple Music ve Spotify değiştirilebilir bağlantılardır. Durum: Faz 0–6 tamamlandı (v0.1.0-mvp, 2 Kasım 2026); Faz 7 sürüyor: yeni arayüz, uygulama içi hesap silme ve hız sınırı yapıldı. Spotify bağlantısı çalışıyor, Apple Music sonraya kaldı.',
     flow: [['Oyla', 'Berbat · Kötü · İdare eder · İyi · Çok iyi · Efsane, ayrıca "Daha Dinlemedim". Oylar sonradan değiştirilebilir.'], ['Zevk profili', 'Tek ortalama yerine çok modlu profil: sevdiklerin zevk modlarına kümelenir, Efsane şarkılar çapa olur, Berbat/Kötü oylar kaçınma bölgesi oluşturur.'], ['Benzerlik grafiği', 'Last.fm, ListenBrainz ve MusicBrainz verisinden şarkılar arası benzerlik grafiği.'], ['Gerekçeli öneri', 'Çapalardan başlayan kişiselleştirilmiş PageRank yürüyüşü; doğrusal olduğu için her önerinin hangi şarkılardan geldiği doğrudan hesaplanır.'], ['Listeler', 'Keşif listesi ve Haftalık Taze listesi bağlı müzik servisine kaydedilir; servis bağlamayan kullanıcı şarkıyı istediği uygulamada açar.']],
     code: '<span class="cm"># kavramsal şema — kişiselleştirilmiş PageRank</span>\nr ← (1 − α)·s + α·Pᵀ·r\n<span class="cm"># s: çapa şarkılar (Efsane), P: benzerlik grafiği</span>\n<span class="cm"># katkı(şarkı_i → öneri_j) doğrudan okunur → "Neden bu şarkı?"</span>',
     notes: 'Yığın: Flutter, Python/FastAPI, PostgreSQL + pgvector, NumPy/SciPy, Docker Compose. Karttaki ağırlık ve kuyruk simülasyonu yalnızca arayüz fikrini gösterir.'
   },
   zam: {
     eye: 'Flutter · Android · FastAPI', title: 'Zam Radarı',
-    kv: [['0', 'banka / SMS bağlantısı'], ['31', 'karar günlüğü maddesi'], ['3/1/0', 'gün önce hatırlatma']],
+    kv: [['0', 'banka / SMS bağlantısı'], ['37', 'karar günlüğü maddesi'], ['3/1/0', 'gün önce hatırlatma']],
     intro: 'Türkiye\'deki dijital aboneliklerini (Netflix, Spotify, Exxen, iCloud+…) tek yerde izleyen, zam gelince bildirim gönderen Android uygulaması. Abonelikleri sen girersin, veriler telefonunda kalır.',
     flow: [['Fiyat izleme', 'Sunucu servislerin TL fiyatlarını resmî sayfalardan ve haberlerden izler; her fiyat insan onayından geçmeden yayına girmez.'], ['Zam eşleştirme', 'Telefon, onaylı fiyat değişimini senin aboneliklerinle eşleştirir ve bildirim gönderir; tek dokunuşla fiyat güncellenir.'], ['Akıllı hızlı giriş', 'Cümle ya da abonelik ekranı görüntüsü (OCR cihaz üstünde); LLM kaydı çıkarır, sen onaylamadan hiçbir şey kaydedilmez.'], ['Hatırlatmalar', 'Yenilemeden 3/1/0 gün önce ve deneme süresi bitmeden; Türkiye saatine göre, internetsiz çalışır.'], ['Öneriler', 'Çakışan abonelikler ve aile planıyla bölüşme tasarrufu; tamamen cihazda, kural tabanlı.']],
     code: '<span class="cm"># tasarım kararları</span>\nveri cihazda        → gizlilik, hesap yok\nLLM yalnız sunucuda → sağlayıcı değişse uygulama güncellenmez\nLLM çıktısı         → <span class="st">insan onayı olmadan yayına girmez</span>\nher istem           → depoda test seti + ölçüm betiği\nanalitik / crash lib → <span class="st">yok</span>',
@@ -1280,7 +1280,7 @@ const DOCS = {
   kayma: {
     eye: 'Python · AST · CLI', title: 'Kayma',
     kv: [['3', 'güven düzeyi'], ['v0.1', '27 Aralık 2026 hedefi'], ['v1.0', '16 Mayıs 2027 hedefi']],
-    intro: 'Yazılım projelerinde (önce Python, sonra TypeScript) mimari kaymayı yakalayan ve değişikliğin patlama yarıçapını gösteren bir komut satırı aracı. Kodu çalıştırmadan, AST ile "hangi parça hangi parçaya bağlı" haritasını çıkarır. Durum: geliştirme aşamasında.',
+    intro: 'Yazılım projelerinde (önce Python, sonra TypeScript) mimari kaymayı yakalayan ve değişikliğin patlama yarıçapını gösteren bir komut satırı aracı. Kodu çalıştırmadan, AST ile "hangi parça hangi parçaya bağlı" haritasını çıkarır. Durum: geliştirme aşamasında; cycles, calls, check ve impact komutları çalışıyor (Hafta 11, 91 test).',
     flow: [['Harita', 'AST ile modül ve çağrı grafiği çıkarılır; kod çalıştırılmaz.'], ['Kurallar', 'kayma.toml: katman sırası, yasak bağımlılık, döngü yasağı; her commit\'te denetlenir.'], ['kayma check', 'Varsayılanda yalnızca kesin kenarlar ihlal sayılır; --strict muhtemel kenarları da sayar.'], ['kayma impact', 'Değişen fonksiyonun çağıranlarını kesin / [muhtemel] / [belirsiz] gruplarında ve etkilenen testleri listeler.'], ['kayma cycles', 'Import döngülerini listeler.'], ['Yol haritası', 'kayma map (etkileşimli harita) ve kayma trend (mimari sağlık) v0.4\'te.']],
     code: 'kayma cycles\nkayma check [--strict]\nkayma impact\n<span class="cm"># güven: certain · likely [muhtemel] · uncertain [belirsiz]</span>',
     notes: 'Karttaki grafik örnek bir projedir; gerçek araç çıktısı değildir.'
