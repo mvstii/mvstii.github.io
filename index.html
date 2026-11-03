@@ -129,14 +129,48 @@ section.block{position:relative;z-index:2;padding:96px 0 0}
 .rv.in{opacity:1;transform:none;filter:none}
 
 /* aegis */
-.scn{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:22px}
+.scn{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
 .scn button{text-align:left;padding:11px 12px;border-radius:12px;border:1px solid var(--border-subtle);background:rgba(255,255,255,.025);font-size:12.5px;line-height:1.35;color:var(--text-hi);transition:all .5s var(--ease)}
 .scn button small{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--text-dim);margin-bottom:4px}
 .scn button:hover{border-color:rgba(14,165,233,.35);background:rgba(14,165,233,.05)}
 .scn button[aria-pressed="true"]{border-color:rgba(139,92,246,.55);background:rgba(139,92,246,.1)}
 .scn button.danger[aria-pressed="true"]{border-color:rgba(244,63,94,.55);background:rgba(244,63,94,.08)}
+.modebar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:14px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-dim)}
+.seg{display:inline-flex;border:1px solid var(--border-subtle);border-radius:9px;overflow:hidden}
+.seg button{padding:6px 13px;font-family:var(--font-mono);font-size:11.5px;color:var(--text-body);background:transparent;transition:all .5s var(--ease)}
+.seg button[aria-pressed="true"]{background:rgba(139,92,246,.18);color:var(--text-hi)}
+.chain{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;min-height:74px}
+.chain .st{flex:1 1 160px;min-width:0;border:1px solid var(--border-subtle);border-radius:12px;padding:10px 12px;background:rgba(2,2,6,.6);opacity:.4;transition:all .6s var(--ease)}
+.chain .st.on{opacity:1;border-color:rgba(139,92,246,.55);background:rgba(139,92,246,.09)}
+.chain .st.done{opacity:.85;border-color:rgba(16,185,129,.3)}
+.chain .st b{display:block;font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--text-hi);overflow-wrap:anywhere}
+.chain .st span{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.chain .st em{font-style:normal;font-family:var(--font-mono);font-size:10.5px;padding:2px 7px;border-radius:5px;border:1px solid var(--border-subtle);color:var(--text-body);font-variant-numeric:tabular-nums}
+.chain .st em[data-e="low"]{color:#7DD3FC;border-color:rgba(14,165,233,.35)}
+.chain .st em[data-e="medium"]{color:#C4B5FD;border-color:rgba(139,92,246,.4)}
+.chain .st em[data-e="high"]{color:#FBBF24;border-color:rgba(245,158,11,.4)}
+.chain .ph{flex:1;display:flex;align-items:center;font-family:var(--font-mono);font-size:11.5px;color:var(--text-dim);border:1px dashed var(--border-subtle);border-radius:12px;padding:10px 12px}
+.gd{margin-top:24px;border-top:1px solid var(--border-subtle);padding-top:18px}
+.gd h4{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--text-hi);letter-spacing:-.02em;margin-bottom:10px}
+.gd-tabs{display:flex;flex-wrap:wrap;gap:6px}
+.gd-tabs button{padding:7px 12px;border-radius:9px;border:1px solid var(--border-subtle);background:rgba(255,255,255,.025);font-family:var(--font-mono);font-size:11.5px;color:var(--text-body);transition:all .5s var(--ease)}
+.gd-tabs button:hover{border-color:rgba(14,165,233,.35)}
+.gd-tabs button[aria-selected="true"]{border-color:rgba(139,92,246,.55);background:rgba(139,92,246,.1);color:var(--text-hi)}
+.gd-pane{display:none;margin-top:14px;font-size:13px;line-height:1.65}
+.gd-pane.on{display:block;animation:ln .5s var(--ease)}
+.gd-pane p{margin-bottom:10px}
+.gd-pane ul,.gd-pane ol{padding-left:20px;margin-bottom:10px}
+.gd-pane li{margin-bottom:5px}
+.gd-pane b{color:var(--text-hi);font-weight:500}
+.gd-pane pre.code{margin:8px 0 12px}
+.tw{overflow-x:auto;margin-bottom:12px}
+.gd table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px}
+.gd th,.gd td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border-subtle);vertical-align:top}
+.gd th{font-family:var(--font-mono);font-size:10.5px;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em}
+.gd td:first-child{white-space:nowrap}
+.gd td.mono,.gd td:first-child{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--text-hi)}
 .sim{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:12px;margin-top:12px}
-.term{background:var(--surface-terminal);border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;min-height:268px;display:flex;flex-direction:column}
+.term{background:var(--surface-terminal);border:1px solid var(--border-subtle);border-radius:14px;overflow:hidden;min-height:330px;display:flex;flex-direction:column}
 .term-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;border-bottom:1px solid var(--border-subtle)}
 .term-bar i{width:9px;height:9px;border-radius:50%;background:#1f1f2e}
 .term-bar span{margin-left:8px;font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
@@ -418,15 +452,126 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
         </div>
         <p class="desc">Claude Code ve CLI ortamları için 4 katmanlı dinamik model yönlendirici (task router), bağlam optimizasyonu ve 166 senaryolu <code>test-guards.sh</code> kabuk güvenlik kalkanı. Bir görevi seç; yönlendirmeyi, token tasarrufunu ve kalkan kararını canlı izle.</p>
         <div class="scn" id="scn" role="group" aria-label="Görev senaryoları"></div>
+        <div class="modebar">
+          <span>.aegis/MODE</span>
+          <div class="seg" id="modeSeg" role="group" aria-label="Efor modu"><button type="button" data-m="auto" aria-pressed="true">auto</button><button type="button" data-m="normal" aria-pressed="false">normal</button></div>
+          <span id="modeHint">auto: efor tablodan verilir, zincir sormadan çalışır</span>
+        </div>
         <div class="sim">
           <div class="term" aria-live="polite">
             <div class="term-bar"><i></i><i></i><i></i><span>aegis — router.sh</span></div>
             <div class="term-body" id="term"></div>
           </div>
           <div class="metrics">
-            <div class="m"><div class="label">Model katmanı</div><div class="v" id="tierName">—</div><div class="tiers" id="tiers"><i></i><i></i><i></i><i></i></div></div>
+            <div class="m"><div class="label">Router seviyesi</div><div class="v" id="tierName">—</div><div class="tiers" id="tiers"><i></i><i></i><i></i><i></i></div></div>
             <div class="m"><div class="label">Token tasarrufu</div><div class="v"><span id="tokSave">0</span>%</div><div class="bar"><b id="tokBar"></b></div></div>
             <div class="m"><div class="label">test-guards.sh</div><div style="margin-top:8px"><span class="badge" id="guardBadge">beklemede</span></div></div>
+          </div>
+        </div>
+        <div class="chain" id="chain" aria-live="polite"><div class="ph">ajan zinciri: model geçişleri ve efor burada görünür ↑</div></div>
+        <div class="gd" id="aegisGuide">
+          <h4>Kullanım Rehberi</h4>
+          <div class="gd-tabs" role="tablist" aria-label="AEGIS kullanım rehberi">
+            <button type="button" role="tab" aria-selected="true" data-p="g0">Başlangıç</button>
+            <button type="button" role="tab" aria-selected="false" data-p="g1">Router</button>
+            <button type="button" role="tab" aria-selected="false" data-p="g2">Ajanlar</button>
+            <button type="button" role="tab" aria-selected="false" data-p="g3">Efor &amp; Mod</button>
+            <button type="button" role="tab" aria-selected="false" data-p="g4">Kancalar</button>
+            <button type="button" role="tab" aria-selected="false" data-p="g5">Komutlar</button>
+          </div>
+          <div class="gd-pane on" id="g0" role="tabpanel">
+            <ol>
+              <li><b>Araçları kur:</b> <code>kurulum.ps1</code> eksik araçları kurar (git, node, dotnet, gh, agy, LSP sunucuları). <code>-Extra</code> ayrıca jq, gitleaks, shellcheck, rg, fd, ast-grep, codex ve gemini ekler.</li>
+              <li><b>Projene kur:</b> koşum takımını kendi klasörüne taşır, temiz <code>MEMORY.md</code> / <code>SPEC.md</code> üretir, <code>git init</code> yapar ve sızıntı kancasını açar.</li>
+            </ol>
+            <pre class="code">powershell -ExecutionPolicy Bypass -File .\yeni-proje.ps1 -Hedef C:\dev\benim-projem -Kurulum</pre>
+            <ol start="3">
+              <li><b>Girişleri yap:</b> <code>giris-yardimcisi.ps1</code> gh, agy ve codex girişlerini adım adım yönlendirir; şifre sormaz, <code>-KontrolEt</code> yalnızca durumu gösterir.</li>
+              <li><b>Başlat:</b> klasörde <code>claude</code> aç. <code>CLAUDE.md</code> (Master Router anayasası) otomatik yüklenir, SessionStart kancası dal, değişen dosya sayısı ve SPEC hedefini devir notu olarak verir.</li>
+              <li><b>Güncelle:</b> <code>yeni-proje.ps1 -Hedef &lt;proje&gt; -Guncelle</code> (plan + onay; hafıza korunur, <code>settings.json</code> birleştirilir, değişenler <code>.aegis-yedek\</code> altına yedeklenir).</li>
+            </ol>
+            <p>Kancalar <code>bash</code> ister; Windows'ta Git for Windows yeterlidir.</p>
+          </div>
+          <div class="gd-pane" id="g1" role="tabpanel">
+            <p>Router, kod yazmadan önce salt-okunur tarama yapar (Grep, dosya ağacı, LSP) ve etki alanını çıkarır. Sonra görevi puanlar: <b>dosya sayısı</b> (1-2 dosya = 1, 3-9 = 2, 10+ = 5) ile <b>algoritmik derinlik</b> (CRUD = 1, iş mantığı = 2, eşzamanlılık/mimari = 4) toplanır.</p>
+            <div class="tw"><table>
+              <thead><tr><th>Seviye</th><th>İş türü</th><th>Kime</th><th>Model · efor</th></tr></thead>
+              <tbody>
+                <tr><td>Fast-Path</td><td>≤3 dosya, yer belli, görev net</td><td>Ana model, doğrudan Grep/Read; ajan ve SPEC.md yok</td><td class="mono">oturum modeli</td></tr>
+                <tr><td>Seviye 1</td><td>Arama, keşif, formatlama</td><td>@explorer-haiku (salt-okunur)</td><td class="mono">haiku · low</td></tr>
+                <tr><td>Seviye 2</td><td>&gt;10 dosya, büyük log, UI analizi</td><td>@gemini-scout, agy köprüsüyle Gemini 1M+ bağlam; çıktı SPEC.md</td><td class="mono">Gemini · medium</td></tr>
+                <tr><td>Seviye 3</td><td>Standart özellik, refactor, birim test</td><td>Ana model; büyük üretimde @implementer-sonnet</td><td class="mono">sonnet · medium</td></tr>
+                <tr><td>Seviye 4</td><td>Karmaşık algoritma, yarış durumu, derin mimari</td><td>/seviye4 + önce @architect-planner</td><td class="mono">opus · high</td></tr>
+              </tbody>
+            </table></div>
+            <p>Toplam <b>2 puan</b>: doğrudan çöz. <b>3-4 puan</b>: Sonnet, medium. <b>5+ puan</b>: önce <code>@gemini-scout</code> ile SPEC.md, derinlik 4 ise önce <code>@architect-planner</code>; ardından high eforla kodla, sonunda <code>@tester-healer</code> ve <code>@reviewer-guard</code> ile doğrula.</p>
+          </div>
+          <div class="gd-pane" id="g2" role="tabpanel">
+            <div class="tw"><table>
+              <thead><tr><th>Ajan</th><th>Model</th><th>Taban efor</th><th>Görev</th></tr></thead>
+              <tbody>
+                <tr><td>explorer-haiku</td><td class="mono">haiku</td><td class="mono">low</td><td>Sembol, dosya, yapılandırma arar; ≤15 satırlık dosya:satır raporu döner.</td></tr>
+                <tr><td>aegis-test-runner</td><td class="mono">haiku</td><td class="mono">low</td><td>dotnet build/test ve pytest çalıştırır; ham çıktıyı basmaz, yalnızca başarısız testleri verir.</td></tr>
+                <tr><td>gemini-scout</td><td class="mono">haiku → Gemini</td><td class="mono">medium</td><td>10+ dosya, log, ekran görüntüsü ve mimari haritalamayı agy ile Gemini'ye yaptırır, SPEC.md üretir.</td></tr>
+                <tr><td>implementer-sonnet</td><td class="mono">sonnet</td><td class="mono">medium</td><td>SPEC.md hedeflerini cerrahi olarak uygular: özellik, refactor, birim test.</td></tr>
+                <tr><td>tester-healer</td><td class="mono">sonnet</td><td class="mono">medium</td><td>Testleri koşar, kök neden analiziyle minimal düzeltir; assertion silmez veya zayıflatmaz.</td></tr>
+                <tr><td>architect-planner</td><td class="mono">opus</td><td class="mono">high</td><td>Salt planlayıcı: uç durum ve yarış koşullarını simüle edip SPEC.md'ye plan yazar.</td></tr>
+                <tr><td>reviewer-guard</td><td class="mono">opus</td><td class="mono">high</td><td>Diff'i güvenlik, yarış durumu ve silinen assertion açısından denetler.</td></tr>
+              </tbody>
+            </table></div>
+            <p>Ajan dosyasındaki <code>effort</code> bir <b>tabandır</b>; <code>auto</code> modda aşağıdaki kurala göre yukarı veya aşağı ezilir.</p>
+          </div>
+          <div class="gd-pane" id="g3" role="tabpanel">
+            <ul>
+              <li><b>normal (manuel):</b> ajan dosyasındaki taban efor kullanılır, <code>effort</code> parametresi verilmez. Eskalasyonda, Seviye 4'te ve model değişiminde onay istenir.</li>
+              <li><b>auto (varsayılan):</b> her alt ajan çağrısında tablodan <code>effort</code> verilir; zincir (planner → implementer → test-runner → reviewer-guard) sormadan çalışır. Commit, push ve silme yine onay ister.</li>
+            </ul>
+            <pre class="code">echo auto &gt; .aegis/MODE      # veya: normal</pre>
+            <div class="tw"><table>
+              <thead><tr><th>Efor</th><th>Ne zaman</th><th>Ajanlar</th></tr></thead>
+              <tbody>
+                <tr><td>low</td><td>Arama, format, test koşumu</td><td>explorer-haiku, aegis-test-runner</td></tr>
+                <tr><td>medium</td><td>Standart özellik, refactor, birim test, log süzme</td><td>implementer-sonnet, tester-healer, gemini-scout</td></tr>
+                <tr><td>high</td><td>Yarış durumu, güvenlik diff'i, derin mimari, uç durum planı</td><td>architect-planner, reviewer-guard</td></tr>
+              </tbody>
+            </table></div>
+            <p><b>Kademe kuralı:</b> toplam puan ≥5 veya iş güvenlik/eşzamanlılık içeriyorsa efor bir kademe yukarı (en fazla high); tek dosyalık basit işte bir kademe aşağı. Üstteki demoda ▲ / ▼ işaretleri bunu gösterir.</p>
+            <p><b>Model geçişleri alt ajanlarla olur.</b> Ana oturumun modeli sabit kalır (önbellek). <code>/seviye4</code> ana turu high eforla çalıştırır; 5.5 modellerinde efor değişimi önbelleği korur, model değişimi korumaz.</p>
+          </div>
+          <div class="gd-pane" id="g4" role="tabpanel">
+            <div class="tw"><table>
+              <thead><tr><th>Kanca</th><th>Ne yapar</th></tr></thead>
+              <tbody>
+                <tr><td>pre-tool-guard.sh</td><td>PreToolUse: Tool Poisoning, prod-config ve veri sızdırma engeli; isteğe bağlı SPEC kapsam kilidi (<code>&lt;!-- scope-lock: on --&gt;</code>).</td></tr>
+                <tr><td>post-edit-eval.sh</td><td>PostToolUse, Eval-Driven Loop: .NET, TypeScript, Python (söz dizimi), Go, Rust derleme/test; hata sormadan düzeltilir.</td></tr>
+                <tr><td>pre-tool-read-guard.sh</td><td>Kilit ve dev dosya okumasını, 500+ satırlık limitsiz <code>Read</code>'i reddeder; çözüm Grep + offset/limit.</td></tr>
+                <tr><td>session-start.sh</td><td>Oturum başında dal, değişen dosya sayısı ve SPEC hedefini devir notu verir.</td></tr>
+                <tr><td>pre-compact-note.sh</td><td><code>/compact</code> öncesi durumu <code>.claude/logs/precompact.log</code>'a yazar.</td></tr>
+                <tr><td>assert-guard.sh</td><td>tester-healer bitirirken test diff'inde silinen assertion veya eklenen Skip varsa ajanı geri gönderir.</td></tr>
+                <tr><td>restrict-write.sh / restrict-bash.sh</td><td>Ajan yazma kısıtı; reviewer-guard için salt-okunur Bash.</td></tr>
+                <tr><td>circuit-breaker.sh</td><td>Maliyet sigortası: 10 dakikada aynı işlem 3 kez başarısız olursa uyarır, 6'da sigortayı açar ve sonraki Bash/Edit/Write çağrılarını reddeder.</td></tr>
+                <tr><td>usage-log.sh</td><td>Token günlüğü: <code>.claude/logs/usage.log</code>.</td></tr>
+                <tr><td>.githooks/pre-commit</td><td>Her commit'te staged değişiklikleri gitleaks ile tarar; bulguda commit durur.</td></tr>
+              </tbody>
+            </table></div>
+            <p><b>Guard kuralı:</b> kanca engellerse ajan durur ve hangi kuralın neyi engellediğini bildirir. <code>tee</code>, <code>sed</code> veya PowerShell ile aşmak yasaktır. Kancayı değiştirince regresyon testini çalıştır:</p>
+            <pre class="code">bash .claude/scripts/test-guards.sh</pre>
+            <p>Kapatma anahtarları: <code>AEGIS_CB=off</code>, <code>AEGIS_USAGE=off</code>, <code>AEGIS_READ_GUARD=off</code>, <code>AEGIS_ASSERT_GUARD=off</code>.</p>
+          </div>
+          <div class="gd-pane" id="g5" role="tabpanel">
+            <div class="tw"><table>
+              <thead><tr><th>Komut</th><th>Ne yapar</th></tr></thead>
+              <tbody>
+                <tr><td>/seviye4 &lt;görev&gt;</td><td>Yüksek eforlu derin tasarım akışı; önce @architect-planner ile uç durum simülasyonu.</td></tr>
+                <tr><td>/ponytail-review</td><td>Diff'i ve çevresindeki kodu, gerçek yükü ve güvenliği inceler.</td></tr>
+                <tr><td>/ponytail-audit</td><td>Tüm repoyu haritalar, sorunları önceliklendirir, çıktıyı SPEC.md'ye yazar.</td></tr>
+                <tr><td>/security-audit &lt;yol&gt;</td><td>Cloudflare güvenlik denetimi skill'i; yalnızca elle çağrılır, varsayılan quick profil, en fazla 8 alt ajan.</td></tr>
+                <tr><td>/aegis-pack [full|ui|fix|audit]</td><td>İsteğe bağlı aegis-craft-sec-pack eklentisi.</td></tr>
+                <tr><td>/compact · /clear</td><td>Bağlam %60'a gelince kararlar <code>MEMORY.md</code>'ye yazılır; iş bittiyse <code>/clear</code>, sürüyorsa <code>/compact</code>.</td></tr>
+              </tbody>
+            </table></div>
+            <p><b>Token disiplini:</b> dosyayı baştan sona okuma, önce Grep ile satır aralığını bul ve 30-50 satır oku. Kısa işte alt ajan başlatma (ajan başına yaklaşık 15k token sabit yük); uzun oturumda büyük üretimi @implementer-sonnet'e devret. Görselleri agy'ye okut. 200k bağlamda otomatik sıkıştırma devreye girer.</p>
+            <p><b>Skill'ler:</b> git-worktree (paralel yazan ajanlar), karpathy-ponytail-discipline, superpowers-tdd, ui-design-efficiency, dynamic-router.</p>
           </div>
         </div>
         <div class="tags"><span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">Claude Code</span><span class="tag">Task Router</span><span class="tag">Context Optimization</span></div>
@@ -832,24 +977,36 @@ if (!reduceMotion && matchMedia('(hover:hover)').matches) {
 
 /* ================= AEGIS SIMULATOR ================= */
 const SCENARIOS = [
-  { id: 'refactor', n: 'Mimari Refactoring', cmd: 'claude "services/ katmanını hexagonal mimariye taşı"', tag: 'görev #1', tier: 4, save: 38, guard: 'ok', danger: false,
-    lines: [['info', '[router] sınıflandırma: çok adımlı, yüksek belirsizlik'], ['dim', '[router] sinyaller → dosya_sayısı=23 · bağımlılık_grafiği=derin · risk=orta'], ['ok', '[router] KATMAN 4 · Architect seçildi'], ['info', '[ctx] 184k → 114k token (özet + yalnız ilgili semboller)'], ['dim', '[guard] 3 shell çağrısı ön-denetimde…'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
-  { id: 'regex', n: 'Hızlı Regex Düzeltmesi', cmd: 'claude "bu regex e-postada + işaretini kabul etmiyor"', tag: 'görev #2', tier: 1, save: 91, guard: 'ok', danger: false,
-    lines: [['info', '[router] sınıflandırma: tek dosya, deterministik düzeltme'], ['dim', '[router] sinyaller → dosya_sayısı=1 · satır=1 · risk=düşük'], ['ok', '[router] KATMAN 1 · Reflex seçildi (en ucuz katman)'], ['info', '[ctx] 9.2k → 0.8k token'], ['dim', '[patch] ^[\\w.+-]+@[\\w-]+\\.[\\w.]+$'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
-  { id: 'rmrf', n: 'Tehlikeli rm -rf Komutu', cmd: 'claude "diski temizle" → rm -rf ~ --no-preserve-root', tag: 'görev #3', tier: 2, save: 64, guard: 'err', danger: true,
-    lines: [['info', '[router] sınıflandırma: yıkıcı dosya sistemi işlemi'], ['warn', '[router] KATMAN 2 · Standard (yalnızca niyet analizi)'], ['dim', '[guard] kural: destructive-root-wipe · desen eşleşti'], ['err', '[guard] test-guards.sh → senaryo #47 başarısız eşleşme = ENGEL'], ['err', '✗ REDDEDİLDİ · exit 2 · komut yürütülmedi'], ['ok', '[guard] 166/166 senaryo hâlâ deterministik · sistem güvende']] },
-  { id: 'multi', n: 'Çoklu Dosya Analizi', cmd: 'claude "tüm repo\'da kullanılmayan bağımlılıkları bul"', tag: 'görev #4', tier: 3, save: 72, guard: 'ok', danger: false,
-    lines: [['info', '[router] sınıflandırma: geniş okuma, yazma yok'], ['dim', '[router] sinyaller → dosya_sayısı=412 · salt-okunur · risk=düşük'], ['ok', '[router] KATMAN 3 · Deep seçildi'], ['info', '[ctx] 1.2M → 340k token (dosya özetleme + yinelenen içerik atma)'], ['dim', '[scan] 7 kullanılmayan paket bulundu'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] }
+  { id: 'fast', n: 'Tek Satırlık Regex', tag: 'Fast-Path', cmd: 'claude "bu regex e-postada + işaretini kabul etmiyor"', tier: 1, save: 91, guard: 'ok',
+    steps: [{ a: 'Ana oturum', m: 'oturum modeli', base: 'oturum', auto: 'oturum' }],
+    lines: [['info', '[router] ön-filtre: salt-okunur tarama (Grep) → etki alanı: 1 dosya'], ['dim', '[router] puan: dosya=1 + derinlik=1 = 2 → Fast-Path'], ['ok', '[router] SEVİYE 1 · ajan, agy ve SPEC.md yok; ana modelde doğrudan çözüm', 0], ['$mode'], ['info', '[ctx] 9.2k → 0.8k token (Grep + 30-50 satır Read)'], ['dim', '[patch] ^[\\w.+-]+@[\\w-]+\\.[\\w.]+$'], ['dim', '[hook] post-edit-eval.sh → derleme ve test temiz'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
+  { id: 'find', n: 'Sembol Keşfi', tag: 'Seviye 1', cmd: 'claude "RetryPolicy sınıfı nerede tanımlı?"', tier: 1, save: 84, guard: 'ok',
+    steps: [{ a: '@explorer-haiku', m: 'haiku', base: 'low', auto: 'low' }],
+    lines: [['info', '[router] ön-filtre: yer belli değil → keşif görevi'], ['dim', '[router] puan: dosya=? + derinlik=1 → salt-okunur arama'], ['ok', '[router] SEVİYE 1 · @explorer-haiku (Read/Grep/Glob, düzenleme yok)'], ['$mode'], ['$eff', 0], ['dim', '[agent] Grep "class RetryPolicy" → 1 eşleşme'], ['info', '[rapor] Services/Retry/RetryPolicy.cs:42 (≤15 satır)'], ['ok', '[ctx] ana bağlamda 0 dosya okundu · 9.2k → 0.6k token'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
+  { id: 'scout', n: 'Geniş Tarama (412 dosya)', tag: 'Seviye 2', cmd: 'claude "tüm repo\'da kullanılmayan bağımlılıkları bul"', tier: 2, save: 72, guard: 'ok',
+    steps: [{ a: '@gemini-scout', m: 'haiku → Gemini 1M', base: 'medium', auto: 'high', why: 'puan 6 ≥ 5' }, { a: 'Ana oturum', m: 'oturum modeli', base: 'oturum', auto: 'oturum' }],
+    lines: [['info', '[router] sınıflandırma: geniş okuma, yazma yok'], ['dim', '[router] puan: dosya=5 (412) + derinlik=1 = 6'], ['ok', '[router] SEVİYE 2 · @gemini-scout, agy köprüsü (1M+ bağlam)'], ['$mode'], ['$eff', 0], ['dim', '[agy] agy -p "kullanılmayan bağımlılıkları listele"'], ['info', '[ctx] 1.2M → 340k token (özetleme + yinelenen içerik atma)'], ['ok', '[spec] SPEC.md yazıldı → 7 kullanılmayan paket', 0], ['info', '[ana] yalnız SPEC.md hedefleri kodlanır; 412 dosya ana bağlama girmez', 1], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
+  { id: 'feature', n: 'Özellik + Birim Test', tag: 'Seviye 3', cmd: 'claude "profile avatar yükleme ekle (API + birim test)"', tier: 3, save: 58, guard: 'ok',
+    steps: [{ a: '@implementer-sonnet', m: 'sonnet', base: 'medium', auto: 'medium' }, { a: '@tester-healer', m: 'sonnet', base: 'medium', auto: 'medium' }],
+    lines: [['info', '[router] sınıflandırma: standart özellik, birkaç dosya'], ['dim', '[router] puan: dosya=2 + derinlik=2 = 4 → Sonnet'], ['ok', '[router] SEVİYE 3 · @implementer-sonnet (SPEC.md hedefleri)'], ['$mode'], ['$eff', 0], ['dim', '[edit] AvatarService.cs +38 · AvatarController.cs +21'], ['warn', '[hook] post-edit-eval.sh → derleme hatası CS0246 → sormadan düzeltildi'], ['$eff', 1], ['dim', '[test] 14/14 geçti · assert-guard.sh: silinen assertion yok'], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
+  { id: 'refactor', n: 'Yarış Durumu / Mimari', tag: 'Seviye 4', cmd: 'claude "/seviye4 görev kuyruğundaki yarış koşulunu çöz"', tier: 4, save: 38, guard: 'ok',
+    steps: [{ a: '@architect-planner', m: 'opus', base: 'high', auto: 'high' }, { a: '@implementer-sonnet', m: 'sonnet', base: 'medium', auto: 'high', why: 'eşzamanlılık' }, { a: '@tester-healer', m: 'sonnet', base: 'medium', auto: 'high', why: 'eşzamanlılık' }, { a: '@reviewer-guard', m: 'opus', base: 'high', auto: 'high' }],
+    lines: [['info', '[router] sınıflandırma: eşzamanlılık, yüksek belirsizlik'], ['dim', '[router] puan: dosya=2 + derinlik=4 = 6 → Seviye 4'], ['ok', '[router] SEVİYE 4 · /seviye4: ana tur effort=high, model sabit (önbellek)'], ['$mode'], ['$eff', 0], ['info', '[plan] uç durumlar simüle edildi → SPEC.md (3 risk)', 0], ['$eff', 1], ['$eff', 2], ['dim', '[test] yarış testi 200 tekrar: 200/200 geçti'], ['$eff', 3], ['ok', '[guard] test-guards.sh → 166/166 geçti · ONAY']] },
+  { id: 'rmrf', n: 'Tehlikeli rm -rf Komutu', tag: 'Guard', cmd: 'claude "diski temizle" → rm -rf ~ --no-preserve-root', tier: 1, save: 0, guard: 'err', danger: true,
+    steps: [{ a: 'Ana oturum', m: 'oturum modeli', base: 'oturum', auto: 'oturum' }, { a: 'pre-tool-guard.sh', m: 'model çağrısı yok', base: 'kural', auto: 'kural' }],
+    lines: [['info', '[router] sınıflandırma: yıkıcı dosya sistemi işlemi'], ['dim', '[agent] Bash çağrısı planlandı: rm -rf ~ --no-preserve-root', 0], ['dim', '[hook] PreToolUse → pre-tool-guard.sh', 1], ['err', '[guard] kural: destructive-root-wipe · desen eşleşti'], ['err', '✗ REDDEDİLDİ · exit 2 · komut yürütülmedi'], ['warn', '[agent] guard kuralı: dur ve bildir; tee/sed/PowerShell ile aşma yasak'], ['dim', '[breaker] 10 dk içinde 3. engel uyarır, 6. engel sigortayı açar'], ['ok', '[guard] 166/166 senaryo hâlâ deterministik · sistem güvende']] }
 ];
-const TIER_NAMES = ['', 'T1 · Reflex', 'T2 · Standard', 'T3 · Deep', 'T4 · Architect'];
-const scnBox = $('#scn');
+const TIER_NAMES = ['', 'S1 · Keşif', 'S2 · Geniş', 'S3 · Standart', 'S4 · Mimari'];
+const EFF_RANK = { low: 1, medium: 2, high: 3 };
+const MODE_HINT = { auto: 'auto: efor tablodan verilir, zincir sormadan çalışır', normal: 'normal: taban efor, eskalasyonda onay istenir' };
+const scnBox = $('#scn'), chainBox = $('#chain');
 scnBox.innerHTML = SCENARIOS.map((s, i) => '<button type="button" aria-pressed="false" data-i="' + i + '" class="' + (s.danger ? 'danger' : '') + '"><small>' + s.tag + '</small>' + s.n + '</button>').join('');
 const term = $('#term');
-let runToken = 0, tokTimer = 0;
+let runToken = 0, tokTimer = 0, aMode = 'auto', lastScn = -1;
 
 function ln(cls, text) {
   const d = document.createElement('div'); d.className = 'ln ' + cls; d.textContent = text; term.appendChild(d);
-  while (term.children.length > 11) term.firstChild.remove();
+  while (term.children.length > 12) term.firstChild.remove();
   return d;
 }
 function setTiers(t) { $$('#tiers i').forEach((el, i) => { el.className = i + 1 <= t ? 'on' + (i + 1 === t ? ' cur' : '') : ''; }); }
@@ -860,26 +1017,75 @@ function tokCount(to) {
   $('#tokBar').style.width = to + '%';
   (function s(n) { const k = clamp((n - t0) / 900, 0, 1); el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3))); if (k < 1) tokTimer = requestAnimationFrame(s); })(t0);
 }
+function effOf(s) { return aMode === 'auto' ? s.auto : s.base; }
+function effLabel(s) {
+  const e = effOf(s);
+  if (e === 'oturum') return 'efor: oturumdaki';
+  if (e === 'kural') return 'deterministik';
+  const d = (EFF_RANK[e] || 0) - (EFF_RANK[s.base] || 0);
+  return 'efor: ' + e + (d > 0 ? ' ▲' : d < 0 ? ' ▼' : '');
+}
+function renderChain(sc, cur) {
+  chainBox.innerHTML = sc.steps.map((s, i) => '<div class="st' + (i < cur ? ' done' : i === cur ? ' on' : '') + '"><b></b><span><em></em><em data-e="' + effOf(s) + '"></em></span></div>').join('');
+  $$('.st', chainBox).forEach((el, i) => {
+    const s = sc.steps[i], ems = el.querySelectorAll('em');
+    el.querySelector('b').textContent = s.a; ems[0].textContent = s.m; ems[1].textContent = effLabel(s);
+  });
+}
+function expand(sc) {
+  const out = [];
+  sc.lines.forEach(l => {
+    if (l[0] === '$mode') {
+      if (sc.danger) return;
+      if (aMode === 'normal' && sc.tier >= 2) out.push(['warn', '[router] MODE=normal · eskalasyon: onay isteniyor… (demo: onaylandı) · effort: ajan dosyasındaki taban']);
+      else if (aMode === 'auto' && sc.tier >= 2) out.push(['info', '[router] MODE=auto · bildir, devam et · effort tablodan verilir']);
+      else out.push(['dim', '[router] MODE=' + aMode + ' · onay gerekmez']);
+    } else if (l[0] === '$eff') {
+      const s = sc.steps[l[1]], e = effOf(s);
+      let t = '[efor] ' + s.a + ' → ' + s.m + ' · effort: ' + e;
+      if (e !== s.base) t += ' (taban ' + s.base + (s.why ? ', ' + s.why : '') + ')';
+      out.push(['dim', t, l[1]]);
+    } else out.push(l);
+  });
+  return out;
+}
 async function runScenario(i) {
-  const sc = SCENARIOS[i], my = ++runToken;
+  const sc = SCENARIOS[i], my = ++runToken; lastScn = i;
   $$('#scn button').forEach((b, k) => b.setAttribute('aria-pressed', String(k === i)));
   term.innerHTML = ''; setTiers(0); $('#tierName').textContent = '…'; setGuard('run', 'denetleniyor…'); tokCount(0);
+  chainBox.innerHTML = '';
   const c = ln('cmd', ''); let full = sc.cmd;
   const step = reduceMotion ? full.length : 2;
   for (let k = 0; k <= full.length; k += step) { c.textContent = full.slice(0, k); await sleep(14); if (my !== runToken) return; }
   c.textContent = full;
   const cur = document.createElement('span'); cur.className = 'caret';
-  for (let k = 0; k < sc.lines.length; k++) {
+  const lines = expand(sc); let shown = 0;
+  for (let k = 0; k < lines.length; k++) {
     await sleep(reduceMotion ? 0 : 420); if (my !== runToken) return;
-    ln(sc.lines[k][0], sc.lines[k][1]);
-    if (k === 2) { setTiers(sc.tier); $('#tierName').textContent = TIER_NAMES[sc.tier]; }
+    ln(lines[k][0], lines[k][1]);
+    if (lines[k][2] !== undefined) { shown = lines[k][2]; renderChain(sc, shown); }
+    if (lines[k][1].indexOf('[router] SEVİYE') === 0) { setTiers(sc.tier); $('#tierName').textContent = TIER_NAMES[sc.tier]; renderChain(sc, -1); }
     if (k === 3) tokCount(sc.save);
   }
   await sleep(250); if (my !== runToken) return;
+  renderChain(sc, sc.steps.length);
   if (sc.guard === 'ok') setGuard('ok', '✓ ONAY · 166/166'); else setGuard('err', '✗ ENGELLENDİ · #47');
   term.appendChild(cur);
 }
 scnBox.addEventListener('click', e => { const b = e.target.closest('button'); if (b) runScenario(+b.dataset.i); });
+function setAegisMode(m) {
+  aMode = m;
+  $$('#modeSeg button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
+  $('#modeHint').textContent = MODE_HINT[m];
+  if (lastScn >= 0) runScenario(lastScn);
+}
+$('#modeSeg').addEventListener('click', e => { const b = e.target.closest('button'); if (b && b.dataset.m !== aMode) setAegisMode(b.dataset.m); });
+const gdTabs = $('#aegisGuide .gd-tabs');
+gdTabs.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  $$('button', gdTabs).forEach(x => x.setAttribute('aria-selected', String(x === b)));
+  $$('#aegisGuide .gd-pane').forEach(p => p.classList.toggle('on', p.id === b.dataset.p));
+});
 ln('dim', '# aegis-hybrid-harness hazır.');
 ln('dim', '# yukarıdan bir görev senaryosu seç ↑');
 term.appendChild(Object.assign(document.createElement('span'), { className: 'caret' }));
@@ -1008,7 +1214,7 @@ const DOCS = {
     eye: 'CLI · Ajan Güvenliği', title: 'aegis-hybrid-harness',
     kv: [['166', 'guard senaryosu'], ['4', 'model katmanı'], ['~65%', 'ort. token tasarrufu*']],
     intro: 'Claude Code ve kabuk ortamlarının önüne yerleşen bir yönlendirme ve güvenlik katmanı. Görevin karmaşıklığına göre en ucuz yeterli model katmanını seçer, bağlamı budar ve her kabuk çağrısını yürütmeden önce deterministik bir test kalkanından geçirir.',
-    flow: [['Görev girişi', 'Prompt ve çalışma dizini sinyalleri (dosya sayısı, bağımlılık derinliği, yazma/okuma niyeti) çıkarılır.'], ['Sınıflandırıcı', 'Kural tabanlı skorlayıcı görevi T1–T4 katmanlarına eşler; belirsizlikte bir üst katmana yükseltir.'], ['Bağlam optimizasyonu', 'Yalnız ilgili sembol ve dosyalar tutulur; geniş okumalar özetlenir, yinelenen içerik atılır.'], ['Model çağrısı', 'Seçilen katmanın modeli çalışır; çıktı komut planına dönüştürülür.'], ['test-guards.sh', 'Her shell komutu 166 senaryoluk kural setine karşı denetlenir: ONAY veya exit 2 ile ENGEL.'], ['Yürütme & log', 'Yalnız onaylı komutlar çalışır; karar, katman ve token metrikleri kaydedilir.']],
+    flow: [['Görev girişi', 'Prompt ve çalışma dizini sinyalleri (dosya sayısı, bağımlılık derinliği, yazma/okuma niyeti) çıkarılır.'], ['Sınıflandırıcı', 'Dosya sayısı (1/2/5 puan) ve algoritmik derinlik (1/2/4 puan) toplanır; Fast-Path veya Seviye 1–4 ile ajan zinciri buna göre seçilir.'], ['Bağlam optimizasyonu', 'Yalnız ilgili sembol ve dosyalar tutulur; geniş okumalar özetlenir, yinelenen içerik atılır.'], ['Model & efor', 'Alt ajan kendi modeliyle çalışır (haiku, sonnet, opus, Gemini). Ana oturumun modeli sabit kalır; auto modda yalnızca alt ajanın effort değeri tablodan verilir.'], ['test-guards.sh', 'Her shell komutu 166 senaryoluk kural setine karşı denetlenir: ONAY veya exit 2 ile ENGEL.'], ['Yürütme & log', 'Yalnız onaylı komutlar çalışır; karar, katman ve token metrikleri kaydedilir.']],
     code: '<span class="cm"># guard kararı: deterministik, model çağrısı yok</span>\n<span class="kw">guard_check</span>() {\n  <span class="kw">local</span> cmd=<span class="st">"$1"</span>\n  <span class="kw">for</span> rule <span class="kw">in</span> <span class="st">"${RULES[@]}"</span>; <span class="kw">do</span>\n    <span class="kw">if</span> [[ <span class="st">"$cmd"</span> =~ $rule ]]; <span class="kw">then</span>\n      <span class="nm">log_block</span> <span class="st">"$rule"</span>; <span class="kw">return</span> 2\n    <span class="kw">fi</span>\n  <span class="kw">done</span>\n  <span class="kw">return</span> 0\n}',
     notes: '* Değerler simülasyon amaçlı örnek senaryolardır; gerçek ölçümler iş yüküne göre değişir.'
   },
@@ -1096,6 +1302,8 @@ const COMMANDS = [
   { g: 'Simülasyon', ic: '📡', t: 'Zam Radarı: zam duyurusu simüle et', h: 'bildirim', run: () => { goTo('c-zam')(); setTimeout(() => $('#zamBtn').click(), 500); } },
   { g: 'Simülasyon', ic: '🔎', t: 'Zar: hatalı seed tara', h: 'DST', run: () => { goTo('c-zar')(); setTimeout(() => $('#zarHunt').click(), 500); } },
   { g: 'Simülasyon', ic: '✓', t: 'Kayma: kayma check çalıştır', h: 'AST', run: () => { goTo('c-kayma')(); setTimeout(() => $('#kgCheck').click(), 500); } },
+  { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → auto', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('auto'), 500); } },
+  { g: 'Simülasyon', ic: '⚙', t: 'aegis: efor modu → normal', h: 'MODE', run: () => { goTo('c-aegis')(); setTimeout(() => setAegisMode('normal'), 500); } },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: aegis-hybrid-harness', h: 'çekmece', run: () => openDrawer('aegis') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: AdilKadro', h: 'çekmece', run: () => openDrawer('adil') },
   { g: 'Mimari', ic: '▤', t: 'Mimariyi incele: Tını', h: 'çekmece', run: () => openDrawer('tini') },
