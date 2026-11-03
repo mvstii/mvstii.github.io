@@ -258,13 +258,7 @@ section.block{position:relative;z-index:2;padding:96px 0 0}
 footer.foot{position:relative;z-index:2;padding:120px 0 130px;text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--text-dim)}
 footer.foot b{color:var(--text-body);font-weight:500}
 
-/* HUD + toast */
-.hud{position:fixed;left:16px;bottom:16px;z-index:44;font-family:var(--font-mono);font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:-.01em;padding:10px 12px;border-radius:12px;background:rgba(5,5,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border-subtle);color:var(--text-dim);display:grid;gap:3px;min-width:150px;transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.hud.off{opacity:0;transform:translateY(10px);pointer-events:none}
-.hud div{display:flex;justify-content:space-between;gap:16px}
-.hud b{color:#E2E8F0;font-weight:500}
-.hud .hh{color:var(--accent-emerald);font-size:10px;letter-spacing:.12em;text-transform:uppercase;display:flex;gap:6px;align-items:center}
-.hud .hh i{width:5px;height:5px;border-radius:50%;background:var(--accent-emerald)}
+/* toast */
 .toasts{position:fixed;right:16px;bottom:16px;z-index:90;display:flex;flex-direction:column;gap:8px;align-items:flex-end;pointer-events:none}
 .toast{display:flex;align-items:center;gap:10px;padding:11px 16px;border-radius:12px;background:rgba(8,8,15,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(16,185,129,.35);color:#E2E8F0;font-size:13px;font-family:var(--font-mono);box-shadow:0 12px 40px -8px rgba(0,0,0,.8),0 0 24px -6px rgba(16,185,129,.35);transform:translateY(16px) scale(.96);opacity:0;transition:all .7s var(--ease)}
 .toast.show{transform:none;opacity:1}
@@ -377,7 +371,6 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
   .kbtn .lbl,.kbtn kbd{display:none}
   .kbtn::before{content:"⋯";font-size:15px;line-height:1;padding:0 3px}
   nav.top{gap:8px;padding-left:12px}
-  .hud{display:none}
   .card{padding:22px}
   .skills{grid-template-columns:1fr}
   .dock a span,.dock button span{display:none}
@@ -695,7 +688,7 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
 <footer class="foot">
   <div class="wrap">
     <p><b>Mustafa Ünal</b> · Void Black sistemi · sıfır bağımlılık · tek dosya</p>
-    <p style="margin-top:6px"><kbd>Ctrl K</kbd> komutlar · <kbd>J</kbd>/<kbd>K</kbd> kartlar arası · <kbd>T</kbd> telemetri · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> atmosfer</p>
+    <p style="margin-top:6px"><kbd>Ctrl K</kbd> komutlar · <kbd>J</kbd>/<kbd>K</kbd> kartlar arası · <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> atmosfer</p>
   </div>
 </footer>
 </main>
@@ -714,13 +707,6 @@ input[type=text]:focus,input[type=number]:focus{outline:0;border-color:rgba(139,
   <button type="button" data-open-pal aria-label="Komut paleti" data-mag><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/></svg><span>Ara</span></button>
 </div>
 
-<div class="hud" id="hud" aria-hidden="true">
-  <div class="hh"><i></i>Telemetri</div>
-  <div>FPS <b id="hFps">60</b></div>
-  <div>Kaydırma <b id="hVel">0</b> px/s</div>
-  <div>Derinlik <b id="hDep">0</b>%</div>
-  <div>Mod <b id="hMode">void</b></div>
-</div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
 <div class="scrim" id="scrim"></div>
@@ -810,7 +796,6 @@ const MODES = { void: 'Void Black', nebula: 'Deep Nebula', zero: 'Pure Zero Ligh
 function setMode(m, silent) {
   document.documentElement.dataset.mode = m;
   $$('.modes button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
-  $('#hMode').textContent = m;
   const meta = $('meta[name="theme-color"]');
   meta.content = m === 'zero' ? '#000000' : m === 'nebula' ? '#02020a' : '#010103';
   starTint = m === 'nebula' ? [190, 200, 255] : m === 'zero' ? [220, 220, 220] : [226, 232, 255];
@@ -912,22 +897,15 @@ function frame(now) {
   frames++;
   if (now - fpsT >= 500) {
     fps = Math.round(frames * 1000 / (now - fpsT)); frames = 0; fpsT = now;
-    if (hudOn) {
-      $('#hFps').textContent = fps;
-      $('#hVel').textContent = Math.round(Math.abs(scrollV));
-    }
   }
   requestAnimationFrame(frame);
 }
 
-/* ================= HUD / PROGRESS ================= */
-let hudOn = true;
-function setHud(on) { hudOn = on; $('#hud').classList.toggle('off', !on); }
+/* ================= PROGRESS ================= */
 function onScroll() {
   const max = document.documentElement.scrollHeight - innerHeight;
   const p = max > 0 ? clamp(scrollY / max, 0, 1) : 0;
   $('#progress').style.transform = 'scaleX(' + p + ')';
-  if (hudOn) $('#hDep').textContent = Math.round(p * 100);
 }
 addEventListener('scroll', onScroll, { passive: true });
 
@@ -1350,8 +1328,7 @@ const COMMANDS = [
   { g: 'İletişim', ic: '✉', t: 'E-postayı kopyala', h: CONFIG.email, run: copyMail },
   { g: 'İletişim', ic: '⎙', t: 'CV\'yi aç', h: CONFIG.cv ? 'pdf' : 'yakında', run: openCv },
   { g: 'İletişim', ic: '↗', t: 'GitHub\'ı aç', h: '', run: () => window.open(CONFIG.github, '_blank', 'noopener') },
-  { g: 'İletişim', ic: '↗', t: 'LinkedIn\'i aç', h: '', run: () => window.open(CONFIG.linkedin, '_blank', 'noopener') },
-  { g: 'Sistem', ic: '◔', t: 'Telemetri HUD aç/kapat', h: 'T', run: () => { setHud(!hudOn); toast('Telemetri ' + (hudOn ? 'açık' : 'kapalı'), 'info'); } }
+  { g: 'İletişim', ic: '↗', t: 'LinkedIn\'i aç', h: '', run: () => window.open(CONFIG.linkedin, '_blank', 'noopener') }
 ];
 let palItems = [], palSel = 0;
 const norm = s => s.toLocaleLowerCase('tr').normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ı/g, 'i');
@@ -1413,7 +1390,6 @@ document.addEventListener('keydown', e => {
   const kl = k.toLowerCase();
   if (kl === 'j') focusCard(1);
   else if (kl === 'k') focusCard(-1);
-  else if (kl === 't') { setHud(!hudOn); toast('Telemetri ' + (hudOn ? 'açık' : 'kapalı'), 'info'); }
   else if (k === '1') setMode('void'); else if (k === '2') setMode('nebula'); else if (k === '3') setMode('zero');
   else if (k === 'Enter' && kIdx >= 0 && document.activeElement === document.body) { const b = $('[data-drawer]', cards[kIdx]); if (b) b.click(); }
   else if (k === 'Escape') { kIdx = -1; cards.forEach(c => c.classList.remove('kfocus')); }
